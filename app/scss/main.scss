@@ -1,9 +1,340 @@
-@import "vars";
-@import "fonts";
-@import "mixins";
-@import "libs";
-@import "config"; // Всегда после библиотек
+@import 'vars';
+@import 'fonts';
+@import 'mixins';
+@import 'libs';
+@import 'config'; // Всегда после библиотек
 
+body {
+  background-color: #1c1c1c;
+  font-weight: 300;
+  perspective: 1000px;
+  color: var(--white-color)
+}
 
+.text-right {
+  text-align: right;
+}
 
-@import "media"; // Всегда вконце
+.text-center {
+  text-align: center;
+}
+
+.top-line {
+  position: absolute;
+  width: 100%;
+  padding: 60px 0;
+  z-index: 100;
+}
+
+.top-line .container-fluid {
+  max-width: 1680px;
+}
+
+@media screen and (max-width: 768px) {
+  .top-line .button {
+    margin-right: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .top-line .button {
+    margin-right: 10px;
+    position: relative;
+    right: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-line {
+    position: relative;
+    padding: 30px 0;
+  }
+}
+
+.logo {
+  font-size: 26px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.logo span {
+  font-weight: 300;
+  transition: color 1s ease;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo:hover span {
+  color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    margin-left: 40px;
+  }
+}
+
+.button {
+  background-color: red;
+  color: #ffffff;
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 10em;
+  font-size: 16px;
+  font-weight: 400;
+  transition: background-color .25s ease;
+}
+
+.button:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #cc0000;
+}
+
+.card-header {
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 576px) {
+  .card-header {
+    overflow: visible;
+  }
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/russia.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.02;
+  transform: scale(1.3);
+}
+
+@media (max-width: 1366px) {
+  .card-header::before {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-header::before {
+    display: none;
+  }
+}
+
+.content {
+  height: 100%;
+  padding: 160px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+@media screen and (max-width: 992px) {
+  .content {
+    transform-style: flat;
+    transform: rotate(0) !important;
+  }
+}
+
+.content h1 {
+  font-size: 31px;
+  line-height: 43px;
+  margin-bottom: 38px;
+}
+
+.content h1 strong {
+  color: red;
+  white-space: nowrap;
+}
+
+.content h1 strong span {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.content h1, .content p, .content a {
+  padding-left: 20px;
+}
+
+.trylink {
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .trylink {
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+}
+
+.trylink i {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  background-color: red;
+  text-align: center;
+  border-radius: 100%;
+  line-height: 32px;
+  margin-right: 10px;
+}
+
+.trylink:hover {
+  color: red;
+}
+
+.card {
+  position: relative;
+  width: 458px;
+  height: 288px;
+  display: inline-block;
+  zoom: .9;
+}
+
+.card > img {
+  position: absolute;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .card > img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    background-image: url(../img/card.png);
+    background-size: cover;
+    width: 100%;
+    padding-top: 64.30062630480167%;
+    height: auto;
+  }
+}
+
+.card-logo_w {
+  z-index: 12;
+  top: 45px;
+  right: 45px;
+  width: 120px;
+}
+
+.card-chip {
+  z-index: 12;
+  left: 45px;
+  top: 80px;
+}
+
+.card-number-holder {
+  z-index: 12;
+  left: 45px;
+  top: 158px;
+  zoom: 3.5;
+}
+
+.card-valid {
+  z-index: 12;
+  top: 194px;
+  right: 211px;
+  zoom: 3;
+}
+
+.card-russia {
+  z-index: 11;
+  top: 20px;
+  left: 22px;
+  width: 420px;
+}
+
+.l_main {
+  left: 0;
+  z-index: 10;
+}
+
+.l2_main {
+  left: 0;
+  z-index: 8;
+  left: -50px;
+  top: 30px;
+}
+
+.l3_main {
+  left: 0;
+  z-index: 6;
+  left: -100px;
+  top: 60px;
+}
+
+.bottom-line {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 14px;
+  width: 100%;
+  font-family: Raleway;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 768px) {
+  .bottom-line {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bottom-line {
+    position: relative;
+    padding-top: 10px;
+  }
+}
+
+.bottom-line strong {
+  font-weight: bold;
+}
+
+.bottom-line a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.level--2 {
+  transform: translateZ(-70px);
+}
+
+.level--1 {
+  transform: translateZ(-35px);
+}
+
+.level-1 {
+  transform: translateZ(20px);
+}
+
+.level-2 {
+  transform: translateZ(40px);
+}
+
+@import 'media'; // Всегда вконце
